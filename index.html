@@ -33,7 +33,6 @@
         body.modal-open { overflow: hidden; }
         * { box-sizing: border-box; outline: none; }
 
-        /* HEADER & UTILS */
         #toast-container { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 3000; display: flex; flex-direction: column; gap: 10px; pointer-events: none; }
         .toast { background: #1e293b; color: white; padding: 12px 24px; border-radius: 50px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 10px; opacity: 0; transform: translateY(-20px); transition: all 0.4s; }
         .toast.visible { opacity: 1; transform: translateY(0); }
@@ -47,7 +46,6 @@
         @keyframes brandPulseSpin { 0% { transform: scale(1) rotate(0deg); } 50% { transform: scale(1.3) rotate(90deg); filter: drop-shadow(0 0 30px rgba(0, 210, 211, 0.6)); } 100% { transform: scale(1) rotate(180deg); } }
         @keyframes textFade { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
 
-        /* HEADER */
         header { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; gap: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); position: sticky; top: 0; z-index: 50; border-bottom: 1px solid rgba(255,255,255,0.6); }
         .logo-area { cursor: pointer; transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); display: flex; align-items: center; }
         .logo-area:hover { transform: scale(1.1); }
@@ -123,8 +121,9 @@
         .date-pill { padding: 3px 8px; border-radius: 6px; font-size: 0.65rem; text-transform: uppercase; font-weight: 800; margin-left: 4px; letter-spacing: 0.5px; }
         .date-pill.late { background: #fee2e2; color: #b91c1c; border: none; } .date-pill.ontime { background: #dcfce7; color: #15803d; border: none; } .date-pill.nodate { background: #f1f5f9; color: #94a3b8; border: none; } 
         
+        /* TAMANHO EXTERNO DO CARD (38px) MANTIDO */
         .resp-container { display: flex; align-items: center; padding-left: 10px; }
-        .avatar-stack-item { width: 28px; height: 28px; border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; border: 2px solid white; margin-left: -10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-transform: uppercase; position: relative; transition: transform 0.2s, z-index 0.2s; background-color: #cbd5e1; overflow: hidden; cursor: help; flex-shrink: 0; }
+        .avatar-stack-item { width: 38px; height: 38px; border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 700; border: 2px solid white; margin-left: -14px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-transform: uppercase; position: relative; transition: transform 0.2s, z-index 0.2s; background-color: #cbd5e1; overflow: hidden; cursor: help; flex-shrink: 0; }
         .avatar-stack-item img { width: 100%; height: 100%; object-fit: cover; }
         .avatar-stack-item:hover { transform: translateY(-4px) scale(1.2); z-index: 50; box-shadow: 0 4px 8px rgba(0,0,0,0.2); border-color: var(--primary-soft); }
         .av-color-0 { background: #3b82f6; } .av-color-1 { background: #ef4444; } .av-color-2 { background: #10b981; } .av-color-3 { background: #f59e0b; } .av-color-4 { background: #8b5cf6; } .av-color-5 { background: #ec4899; }
@@ -137,7 +136,6 @@
         .modal-overlay.active .modal-wide { transform: scale(1); }
         .modal-top { padding: 25px 40px; border-bottom: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: flex-start; background: #fff; gap: 20px; }
         
-        /* TÍTULO ROBUSTO */
         .title-textarea { font-family: 'Montserrat', sans-serif; font-size: 1.8rem; border: none; font-weight: 900; color: var(--primary-dark); width: 100%; background: transparent; padding: 5px 0; line-height: 1.2; outline: none; resize: none; overflow: hidden; height: auto; min-height: 50px; margin-top: 5px; border-bottom: 2px solid transparent; transition: 0.3s; letter-spacing: -0.5px; text-shadow: 0 1px 1px rgba(0,0,0,0.05); }
         .title-textarea:focus { border-bottom: 2px solid var(--brand-cyan); }
         .title-textarea::placeholder { color: #cbd5e0; font-weight: 700; opacity: 0.6; }
@@ -151,7 +149,6 @@
         .inner-card { background: white; padding: 25px; border-radius: 16px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border: 1px solid var(--border-light); display: flex; flex-direction: column; gap: 12px; }
         .highlight-section { border: 2px solid var(--primary-soft); background: #f0f9ff; text-align: center; align-items: center; }
 
-        /* FONTE DAS SEÇÕES */
         .section-label { font-family: 'Montserrat', sans-serif; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px; color: var(--primary); font-weight: 800; display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
         .section-label::before { content: ''; display: block; width: 4px; height: 14px; background: var(--brand-cyan); border-radius: 2px; }
         
@@ -169,21 +166,21 @@
         .date-label { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; color: var(--text-light); margin-bottom: 4px; }
         .date-input-clean { background: transparent; border: none; font-family: 'Inter'; font-weight: 600; font-size: 0.9rem; width: 100%; color: var(--text-main); cursor: pointer; }
         
-        /* AVATAR BIG (MODAL) */
-        #modalAvatarList { justify-content: center; min-height: 90px; }
+        /* TAMANHO INTERNO DO MODAL (130px) MANTIDO */
+        #modalAvatarList { justify-content: center; min-height: 130px; }
         .modal-avatar-big { 
-            width: 90px; height: 90px; border-radius: 50%; overflow: hidden; border: 4px solid white; 
+            width: 130px; height: 130px; border-radius: 50%; overflow: hidden; border: 4px solid white; 
             box-shadow: 0 4px 15px rgba(0,0,0,0.15); object-fit: cover; transition: 0.3s;
             display: flex; align-items: center; justify-content: center;
-            color: white; font-size: 2.2rem; font-weight: 800; text-transform: uppercase;
-            background-color: #cbd5e1; /* Default Fallback */
+            color: white; font-size: 3rem; font-weight: 800; text-transform: uppercase;
+            background-color: #cbd5e1; 
+            image-rendering: -webkit-optimize-contrast;
         }
         .modal-avatar-big.animate-in { animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .modal-avatar-big.removing { animation: scaleOut 0.3s forwards; }
         @keyframes popIn { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
         @keyframes scaleOut { from { transform: scale(1); opacity: 1; } to { transform: scale(0); opacity: 0; } }
 
-        /* TIMELINE - MAPA DO TESOURO */
         .timeline { margin-top: 15px; padding-left: 20px; position: relative; }
         .timeline::before { content: ''; position: absolute; left: 6px; top: 10px; bottom: 0; width: 2px; border-left: 2px dashed #cbd5e1; z-index: 0; }
         .timeline-item { position: relative; margin-bottom: 30px; animation: slideInTimeline 0.4s ease-out forwards; }
@@ -235,7 +232,6 @@
         
         #modalAvatarList:empty { display: none !important; }
 
-        /* --- RESPONSIVIDADE (MOBILE) --- */
         @media (max-width: 900px) {
             .dashboard-grid { grid-template-columns: 1fr; } 
             .span-2, .span-4 { grid-column: 1; }
@@ -243,61 +239,17 @@
             .header-actions { width: 100%; flex-direction: column; gap: 10px; margin-top: 10px; }
             .search-wrapper { width: 100%; } 
             .search-input { width: 100%; opacity: 1; background: white; padding-left: 40px; }
-            
-            /* MODAL FULL SCREEN */
             .modal-wide { width: 100%; height: 100%; max-width: 100%; border-radius: 0; } 
             .modal-body { grid-template-columns: 1fr; display: block; overflow-y: auto; height: calc(100% - 160px); } 
             .col-left { border-right: none; border-bottom: 1px solid #eee; padding: 20px; height: auto; overflow: visible; } 
             .col-right { padding: 20px; border-left: none; height: auto; overflow: visible; }
-            
             .modal-top { flex-direction: column; align-items: flex-start; padding: 20px; position: relative; }
             .close-btn { position: absolute; top: 20px; right: 20px; }
             .title-textarea { font-size: 1.4rem; padding-right: 40px; }
-            
-            /* RODAPÉ DO MODAL (MOBILE) - PILHA VERTICAL */
-            .modal-footer {
-                flex-direction: column; /* Um em cima do outro */
-                gap: 12px;
-                padding: 20px;
-                height: auto;
-            }
-
-            /* Botões de Status em Pilha */
-            .status-segmented {
-                flex-direction: column; /* Vertical */
-                width: 100%;
-                height: auto;
-                border-radius: 16px;
-                padding: 8px;
-                gap: 5px;
-            }
-            
-            .seg-btn {
-                width: 100%; /* Largura total */
-                justify-content: center;
-                padding: 12px; /* Mais alto para toque */
-                border-radius: 8px;
-            }
-
-            /* Botão Salvar */
-            .btn-save {
-                width: 100%;
-                padding: 15px;
-                font-size: 1rem;
-            }
-
-            /* Botão Excluir */
-            .modal-footer > button:first-child {
-                width: 100%;
-                justify-content: center;
-                padding: 12px;
-                border: 1px solid #fee2e2;
-                background-color: #fef2f2;
-                color: var(--danger);
-                border-radius: 12px;
-                font-weight: 700;
-            }
-            
+            .modal-footer { flex-direction: column; gap: 12px; padding: 20px; height: auto; }
+            .status-segmented { flex-direction: column; width: 100%; height: auto; border-radius: 16px; padding: 8px; gap: 5px; }
+            .seg-btn { width: 100%; justify-content: center; padding: 12px; border-radius: 8px; }
+            .btn-save { width: 100%; padding: 15px; font-size: 1rem; }
             .filter-container { flex-direction: column; align-items: stretch; gap: 10px; } 
             .filter-select { width: 100%; }
             .meta-grid, .date-grid { grid-template-columns: 1fr; gap: 15px; }
@@ -350,7 +302,6 @@
             </div>
             <div class="modal-body">
                 <div class="col-left">
-                    
                     <div class="inner-card highlight-section">
                         <span class="section-label" style="justify-content: center;">Responsáveis (Envolvidos)</span>
                         <div id="modalAvatarList" style="display:flex; gap:10px; margin-bottom:10px; flex-wrap:wrap;"></div>
@@ -370,9 +321,8 @@
                     </div>
 
                     <div class="inner-card">
-                         <span class="section-label">Origem & Prazo</span>
+                        <span class="section-label">Origem & Prazo</span>
                         <input type="text" id="inpOrigin" class="styled-input" placeholder="Origem da demanda (Ex: Email Diretoria)" style="border-radius:8px;">
-                        
                         <div class="date-grid" style="margin-top:5px; margin-bottom:0;">
                             <div class="date-input-wrapper">
                                 <span class="date-label">Data Início</span>
@@ -475,11 +425,15 @@
         const alertModal = document.getElementById('alertModal');
         const timelineList = document.getElementById('timelineList'); const btnAddStep = document.getElementById('btnAddStepBtn'); const statsPanel = document.getElementById('statsPanel'); const btnStats = document.getElementById('btnStats'); const loadingOverlay = document.getElementById('loading-overlay'); const fileInput = document.getElementById('inpFiles');
 
+        /* ALTERAÇÃO SOLICITADA: DATA COM ANO */
         function formatarData(isoStr) {
             if (!isoStr) return "";
-            const d = new Date(isoStr);
-            if (isNaN(d.getTime())) return "";
-            return d.toLocaleDateString('pt-BR', {day:'2-digit', month:'2-digit'});
+            const partes = isoStr.split(/[-/T ]/); 
+            if (partes.length >= 3) {
+                if (partes[0].length === 4) return `${partes[2]}/${partes[1]}/${partes[0]}`;
+                return `${partes[0]}/${partes[1]}/${partes[2]}`;
+            }
+            return isoStr;
         }
 
         function dataParaInput(isoStr) {
@@ -489,10 +443,7 @@
             return d.toISOString().split('T')[0];
         }
 
-        function dataParaPlanilha(inpStr) {
-            if (!inpStr) return "";
-            return inpStr; 
-        }
+        function dataParaPlanilha(inpStr) { return inpStr || ""; }
 
         function formatarNomeProprio(texto) {
             if (!texto) return "";
@@ -542,10 +493,8 @@
         async function carregarDados(silencioso=false) {
             try {
                 if(!silencioso) loadingOverlay.classList.remove('hidden');
-                
                 const r = await fetch(API_URL + "?action=read&v=" + Date.now()); 
                 const d = await r.json();
-                
                 if(!Array.isArray(d)) throw new Error("Dados inválidos");
                 tasks = d.map(t=>{ 
                     const k=(n)=>Object.keys(t).find(x=>x.toLowerCase()===n.toLowerCase());
@@ -561,9 +510,7 @@
                 });
                 popularFiltroUnidades(); aplicarFiltros(); 
                 if(isStatsOpen) atualizarGraficos();
-                
                 tasks.forEach(t => { if (t.resp) t.resp.split(',').forEach(n => buscarFoto(n.trim())); });
-
             } catch(e) { 
                 console.error("Erro ao carregar:", e); 
                 showToast("Erro ao conectar no banco.", "error");
@@ -582,7 +529,6 @@
         function aplicarFiltros() {
             const fs=document.getElementById('filtro-status').value; const fp=document.getElementById('filtro-prioridade').value; const fu=document.getElementById('filtro-unidade').value;
             const btn=document.getElementById('btn-limpar'); btn.style.display=(fs!=='todos'||fp!=='todos'||fu!=='todos')?'block':'none';
-            
             const f=tasks.filter(t=>{
                 const mB = termoBusca==="" || t.title.toLowerCase().includes(termoBusca) || t.resp.toLowerCase().includes(termoBusca) || (t.unit&&t.unit.toLowerCase().includes(termoBusca));
                 const mS = fs==='todos' || normalizarTexto(t.status)===fs;
@@ -590,16 +536,13 @@
                 const mU = fu==='todos' || t.unit===fu;
                 return mB && mS && mP && mU;
             });
-
             const hj = new Date().toISOString().split('T')[0];
             f.sort((a,b)=>{ 
                 const stA = normalizarTexto(a.status); const stB = normalizarTexto(b.status);
                 const isConcA = stA === 'concluido', isConcB = stB === 'concluido';
                 if(isConcA && !isConcB) return 1; if(!isConcA && isConcB) return -1;
-                
                 const dDueA = dataParaInput(a.dateDue), dDueB = dataParaInput(b.dateDue);
                 const isLateA = (dDueA && dDueA < hj && dDueA !== ""), isLateB = (dDueB && dDueB < hj && dDueB !== "");
-                
                 if (isLateA && !isLateB) return -1; if (!isLateA && isLateB) return 1;  
                 return b.id - a.id;
             });
@@ -609,14 +552,11 @@
         async function buscarFoto(nome) {
             if (!nome) return null;
             if (photoCache[nome] !== undefined) return photoCache[nome]; 
-            
             if(buscandoAgora.has(nome)) return null;
             buscandoAgora.add(nome);
-
             try {
                 const res = await fetch(`${API_URL}?action=getPhoto&name=${encodeURIComponent(nome)}`);
                 const data = await res.json();
-                
                 if (data.url) { 
                     photoCache[nome] = data.url; 
                     const avataresNaGrid = document.querySelectorAll(`.avatar-stack-item[data-name="${nome}"]`);
@@ -635,19 +575,15 @@
 
         function getAvatarHTML(nomeStr, index) {
             if(!nomeStr) return '';
-            
             const nomeTrim = formatarNomeProprio(nomeStr.trim());
             const url = photoCache[nomeTrim];
             const colorIndex = nomeTrim.length % 6; 
             const fallbackClass = `av-color-${colorIndex}`;
             const zIdx = 10 - index; 
-
             if (url) {
                 return `<div class="avatar-stack-item" style="z-index:${zIdx}" title="${nomeTrim}" data-name="${nomeTrim}"><img src="${url}" alt="${nomeTrim[0]}" onerror="this.style.display='none';this.parentNode.classList.add('${fallbackClass}');this.parentNode.innerText='${nomeTrim[0]}' "></div>`;
             }
-            if (photoCache[nomeTrim] === undefined && nomeTrim.split(' ').length >= 2) {
-                buscarFoto(nomeTrim);
-            }
+            if (photoCache[nomeTrim] === undefined && nomeTrim.split(' ').length >= 2) { buscarFoto(nomeTrim); }
             return `<div class="avatar-stack-item ${fallbackClass}" style="z-index:${zIdx}" title="${nomeTrim}" data-name="${nomeTrim}">${nomeTrim[0].toUpperCase()}</div>`;
         }
 
@@ -661,24 +597,16 @@
                 const stInfo = st==='pendente'?{l:'A Fazer',c:'st-pendente',b:'#475569'} : st==='andamento'?{l:'Andamento',c:'st-andamento',b:'#f59e0b'} : {l:'Concluído',c:'st-concluido',b:'#059669'};
                 const corBarra = st==='pendente'?'rgba(0,0,0,0.05)' : st==='andamento'?'#f59e0b' : '#059669';
                 const prio=t.priority||'baixa', pL={'alta':'Alta','media':'Média','baixa':'Baixa'}[prio], pC={'alta':'p-alta','media':'p-media','baixa':'p-baixa'}[prio], pI=prio==='alta'?'priority_high':prio==='media'?'remove':'keyboard_arrow_down';
-                
-                let dtH=''; 
-                if(isLate) dtH=`<span class="date-pill late">Atrasado</span>`; 
-                else if(isOnt) dtH=`<span class="date-pill ontime">Em dia</span>`; 
-                else if(!dDue&&!isConc) dtH=`<span class="date-pill nodate">S/ Prazo</span>`;
-                
-                let thH=''; 
-                if(t.attachments) {
+                let dtH=''; if(isLate) dtH=`<span class="date-pill late">Atrasado</span>`; else if(isOnt) dtH=`<span class="date-pill ontime">Em dia</span>`; else if(!dDue&&!isConc) dtH=`<span class="date-pill nodate">S/ Prazo</span>`;
+                let thH=''; if(t.attachments) {
                     let lks = t.attachments.includes("|||") ? t.attachments.split('|||').filter(x=>x) : t.attachments.split(',').filter(x=>x);
                     if(lks.length>0) {
-                        let innerTh = '';
-                        for(let j=0; j<Math.min(lks.length,3); j++) innerTh+=`<a href="${lks[j]}" target="_blank" class="thumb-link" onclick="event.stopPropagation()"><span class="material-icons-round" style="font-size:16px">description</span></a>`;
+                        let innerTh = ''; for(let j=0; j<Math.min(lks.length,3); j++) innerTh+=`<a href="${lks[j]}" target="_blank" class="thumb-link" onclick="event.stopPropagation()"><span class="material-icons-round" style="font-size:16px">description</span></a>`;
                         if(lks.length>3) innerTh+=`<div class="thumb-more">+${lks.length-3}</div>`;
                         thH=`<div class="card-thumbs">${innerTh}</div>`;
                     }
                 }
                 if(!thH) thH = `<div class="card-thumbs"></div>`;
-                
                 const c=document.createElement('div'); c.className=`card animate-in ${isLate?'is-late':''} ${isConc?'is-concluded':''}`; c.onclick=()=>abrirModal(t.id, event); c.style.animationDelay=`${i*0.05}s`;
                 c.innerHTML=`
                     <div class="card-main">
@@ -698,60 +626,26 @@
         }
 
         function autoResize(el) { el.style.height = 'auto'; el.style.height = el.scrollHeight + 'px'; }
+        function debounceAtualizarAvatars(val) { clearTimeout(debounceTimer); debounceTimer = setTimeout(() => atualizarAvatarsModal(val), 1500); }
 
-        // --- DELAY 1.5s ---
-        function debounceAtualizarAvatars(val) {
-            clearTimeout(debounceTimer);
-            debounceTimer = setTimeout(() => atualizarAvatarsModal(val), 1500); 
-        }
-
-        // --- LÓGICA MODAL (CORRIGIDA) ---
         async function atualizarAvatarsModal(valorInput) {
             const container = document.getElementById('modalAvatarList');
-            if(!valorInput) { 
-                Array.from(container.children).forEach(el => {
-                    el.classList.add('removing');
-                    setTimeout(() => el.remove(), 400);
-                });
-                return; 
-            }
-            
+            if(!valorInput) { Array.from(container.children).forEach(el => { el.classList.add('removing'); setTimeout(() => el.remove(), 400); }); return; }
             const nomesRaw = valorInput.split(',').filter(n => n.trim().length > 0);
             const nomesFormatados = nomesRaw.map(n => formatarNomeProprio(n.trim()));
-
-            // 1. Remove quem saiu
-            Array.from(container.children).forEach(el => {
-                if (!nomesFormatados.includes(el.title) && !el.classList.contains('removing')) {
-                    el.classList.add('removing'); 
-                    setTimeout(() => el.remove(), 400);
-                }
-            });
-
-            // 2. Adiciona novos
+            Array.from(container.children).forEach(el => { if (!nomesFormatados.includes(el.title) && !el.classList.contains('removing')) { el.classList.add('removing'); setTimeout(() => el.remove(), 400); } });
             for (const n of nomesFormatados) {
                 if(n.includes(' ') && n.split(' ')[1].length > 1) {
-                    
                     const jaExiste = Array.from(container.children).some(el => el.title === n && !el.classList.contains('removing'));
-                    
                     if (!jaExiste) {
                         const url = await buscarFoto(n);
                         const inputAgora = document.getElementById('inpResp').value;
                         if (!inputAgora.toLowerCase().includes(n.toLowerCase())) continue;
                         if(document.getElementById('modalAvatarList').querySelector(`[title="${n}"]`)) continue;
-
                         if (url) {
-                            const img = document.createElement('img');
-                            img.src = url;
-                            img.className = 'modal-avatar-big animate-in';
-                            img.title = n;
-                            container.appendChild(img);
+                            const img = document.createElement('img'); img.src = url; img.className = 'modal-avatar-big animate-in'; img.title = n; container.appendChild(img);
                         } else {
-                            // FALLBACK (BOLINHA)
-                            const div = document.createElement('div');
-                            div.className = `modal-avatar-big animate-in av-color-${n.length%6}`;
-                            div.innerText = n[0].toUpperCase();
-                            div.title = n;
-                            container.appendChild(div);
+                            const div = document.createElement('div'); div.className = `modal-avatar-big animate-in av-color-${n.length%6}`; div.innerText = n[0].toUpperCase(); div.title = n; container.appendChild(div);
                         }
                     }
                 }
@@ -762,39 +656,23 @@
             if(e) e.stopPropagation();
             const isEdit=id!==null; editingStepIndex=-1; document.getElementById('newStepDesc').value=''; document.getElementById('newStepObs').value='';
             newFiles=[]; filesToDelete=[]; keptExistingAttachments=[]; document.getElementById('existingAttachmentsArea').innerHTML=''; renderFilePreview();
-            const ti = document.getElementById('inpTitle'); 
-            
-            const container = document.getElementById('modalAvatarList');
-            container.innerHTML = ""; 
-
+            const ti = document.getElementById('inpTitle'); const container = document.getElementById('modalAvatarList'); container.innerHTML = ""; 
             if(isEdit) {
                 const t=tasks.find(x=>x.id==id); if(!t)return;
                 document.getElementById('taskId').value=t.id; ti.value=t.title; autoResize(ti);   
                 document.getElementById('inpUnit').value=t.unit; document.getElementById('inpPriority').value=t.priority; document.getElementById('inpOrigin').value=t.origin; document.getElementById('inpProblem').value=t.problem;
                 document.getElementById('inpResp').value=t.resp; 
-                
-                // CARREGA AVATARES MANUALMENTE
                 if(t.resp) {
                     const nomes = t.resp.split(',').filter(n => n.trim().length > 0);
                     nomes.forEach(async (nomeRaw) => {
-                        const n = formatarNomeProprio(nomeRaw);
-                        const url = await buscarFoto(n);
+                        const n = formatarNomeProprio(nomeRaw); const url = await buscarFoto(n);
                         if(url) {
-                            const img = document.createElement('img');
-                            img.src = url;
-                            img.className = 'modal-avatar-big animate-in'; 
-                            img.title = n;
-                            container.appendChild(img);
+                            const img = document.createElement('img'); img.src = url; img.className = 'modal-avatar-big animate-in'; img.title = n; container.appendChild(img);
                         } else {
-                            const div = document.createElement('div');
-                            div.className = `modal-avatar-big animate-in av-color-${n.length%6}`;
-                            div.innerText = n[0].toUpperCase();
-                            div.title = n;
-                            container.appendChild(div);
+                            const div = document.createElement('div'); div.className = `modal-avatar-big animate-in av-color-${n.length%6}`; div.innerText = n[0].toUpperCase(); div.title = n; container.appendChild(div);
                         }
                     });
                 }
-
                 document.getElementById('inpDateStart').value=dataParaInput(t.dateStart); document.getElementById('inpDateDue').value=dataParaInput(t.dateDue);
                 updateStatusUI(normalizarTexto(t.status)); tempSteps=[...t.steps];
                 if(t.attachments) { keptExistingAttachments=t.attachments.includes("|||")?t.attachments.split('|||').filter(x=>x):t.attachments.split(',').filter(x=>x); renderExistingAttachments(); }
@@ -804,9 +682,7 @@
                 document.getElementById('inpUnit').value=''; document.getElementById('inpPriority').value='baixa'; document.getElementById('inpOrigin').value=''; document.getElementById('inpProblem').value=''; document.getElementById('inpResp').value='';
                 document.getElementById('inpDateStart').value=`${y}-${m}-${d}`; document.getElementById('inpDateDue').value=''; updateStatusUI('pendente'); tempSteps=[];
             }
-            renderTimeline(); 
-            modal.style.display='flex'; setTimeout(()=>modal.classList.add('active'),10); setTimeout(() => autoResize(ti), 50);
-            document.body.classList.add('modal-open');
+            renderTimeline(); modal.style.display='flex'; setTimeout(()=>modal.classList.add('active'),10); setTimeout(() => autoResize(ti), 50); document.body.classList.add('modal-open');
         }
         
         function fecharModal() { modal.classList.remove('active'); setTimeout(()=>modal.style.display='none',300); document.body.classList.remove('modal-open'); }
@@ -819,17 +695,12 @@
                 const id=document.getElementById('taskId').value, title=document.getElementById('inpTitle').value;
                 if(!title) { document.getElementById('alertMsg').innerText="Título obrigatório."; alertModal.style.display='flex'; setTimeout(()=>alertModal.classList.add('active'),10); return; }
                 const btn=document.getElementById('btnSalvarPrincipal'); const txt=btn.innerHTML; btn.innerHTML=`<span class="material-icons-round" style="font-size:16px;animation:spin 1s linear infinite;">refresh</span> Salvando...`; btn.disabled=true; document.body.style.cursor='wait';
-                
                 const rawResp=document.getElementById('inpResp').value||""; 
-                const namesFormatted = [...new Set(rawResp.split(',')
-                    .map(n => formatarNomeProprio(n.trim())) 
-                    .filter(n => n.length > 0))].join(', ');
-
+                const namesFormatted = [...new Set(rawResp.split(',').map(n => formatarNomeProprio(n.trim())).filter(n => n.length > 0))].join(', ');
                 const finalId = id ? parseInt(id) : Date.now();
                 const payload = {
                     id: finalId, title:title, unit:document.getElementById('inpUnit').value, priority:document.getElementById('inpPriority').value, origin:document.getElementById('inpOrigin').value, problem:document.getElementById('inpProblem').value, 
-                    resp: namesFormatted, 
-                    dateStart:dataParaPlanilha(document.getElementById('inpDateStart').value), dateDue:dataParaPlanilha(document.getElementById('inpDateDue').value), status:document.getElementById('selectedStatus').value, steps:tempSteps,
+                    resp: namesFormatted, dateStart:dataParaPlanilha(document.getElementById('inpDateStart').value), dateDue:dataParaPlanilha(document.getElementById('inpDateDue').value), status:document.getElementById('selectedStatus').value, steps:tempSteps,
                     newFiles:newFiles, existingAttachments:keptExistingAttachments, filesToDelete:filesToDelete, action: id?"update":"create"
                 };
                 const existingIdx = tasks.findIndex(t => t.id === finalId);
@@ -870,55 +741,35 @@
         attachmentDeleteModal.onclick=(e)=>{if(e.target===attachmentDeleteModal)fecharModalAnexo()};
         alertModal.onclick=(e)=>{if(e.target===alertModal)fecharAlertModal()};
 
+        /* AJUSTE SOLICITADO: SCROLL PARA O TOPO */
         function toggleStats(e) {
-            isStatsOpen = !isStatsOpen;
-            const btn = document.getElementById('btnStats');
-            if(isStatsOpen) {
-                statsPanel.classList.add('open'); btn.classList.add('active');
-                if(tasks.length > 0) atualizarGraficos();
-            } else {
-                statsPanel.classList.remove('open'); btn.classList.remove('active');
-            }
+            isStatsOpen = !isStatsOpen; const btn = document.getElementById('btnStats');
+            if(isStatsOpen) { 
+                statsPanel.classList.add('open'); btn.classList.add('active'); 
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                if(tasks.length > 0) atualizarGraficos(); 
+            } else { statsPanel.classList.remove('open'); btn.classList.remove('active'); }
         }
 
         function atualizarGraficos() {
             if(!isStatsOpen) return;
-            if(chartStatusInstance) chartStatusInstance.destroy();
-            if(chartPrazosInstance) chartPrazosInstance.destroy();
-            if(chartUnitInstance) chartUnitInstance.destroy();
-            if(chartRespInstance) chartRespInstance.destroy();
-
+            if(chartStatusInstance) chartStatusInstance.destroy(); if(chartPrazosInstance) chartPrazosInstance.destroy(); if(chartUnitInstance) chartUnitInstance.destroy(); if(chartRespInstance) chartRespInstance.destroy();
             const statsStatus = { pendente:0, andamento:0, concluido:0 };
             tasks.forEach(t => { let s = normalizarTexto(t.status); if(statsStatus[s] !== undefined) statsStatus[s]++; else statsStatus.pendente++; });
-
             const hj = new Date().toISOString().split('T')[0];
             let atrasados = 0, noPrazo = 0, semPrazo = 0;
             tasks.forEach(t => { if(normalizarTexto(t.status) === 'concluido') return; const d = dataParaInput(t.dateDue); if(!d) semPrazo++; else if(d < hj) atrasados++; else noPrazo++; });
-
             const unitMap = {}; tasks.forEach(t => { const u = t.unit || 'Sem Unidade'; unitMap[u] = (unitMap[u] || 0) + 1; });
-            
             const respMap = {}; 
-            tasks.forEach(t => { 
-                if(t.resp) { 
-                    t.resp.split(',').forEach(r => { 
-                        const name = formatarNomeProprio(r.trim()); 
-                        if(name) respMap[name] = (respMap[name] || 0) + 1; 
-                    }); 
-                } 
-            });
+            tasks.forEach(t => { if(t.resp) { t.resp.split(',').forEach(r => { const name = formatarNomeProprio(r.trim()); if(name) respMap[name] = (respMap[name] || 0) + 1; }); } });
             const sortedResp = Object.entries(respMap).sort((a,b)=>b[1]-a[1]).slice(0, 5);
-
             const ctxStatus = document.getElementById('chartStatus').getContext('2d');
             chartStatusInstance = new Chart(ctxStatus, { type: 'doughnut', data: { labels: ['A Fazer', 'Andamento', 'Concluído'], datasets: [{ data: [statsStatus.pendente, statsStatus.andamento, statsStatus.concluido], backgroundColor: ['#cbd5e1', '#f59e0b', '#059669'], borderWidth: 0 }] }, options: { responsive: true, maintainAspectRatio: false, cutout: '75%', plugins: { legend: { position: 'right', labels:{boxWidth:10} } } } });
-
             const ctxPrazos = document.getElementById('chartPrazos').getContext('2d');
             chartPrazosInstance = new Chart(ctxPrazos, { type: 'doughnut', data: { labels: ['Em Dia', 'Atrasado', 'S/ Prazo'], datasets: [{ data: [noPrazo, atrasados, semPrazo], backgroundColor: ['#10b981', '#ef4444', '#e2e8f0'], borderWidth: 0 }] }, options: { responsive: true, maintainAspectRatio: false, cutout: '75%', plugins: { legend: { position: 'right', labels:{boxWidth:10} } } } });
-
             const ctxUnit = document.getElementById('chartUnit').getContext('2d');
             chartUnitInstance = new Chart(ctxUnit, { type: 'doughnut', data: { labels: Object.keys(unitMap), datasets: [{ label: 'Ocorrências', data: Object.values(unitMap), backgroundColor: ['#0f4c81', '#00d2d3', '#3b82f6', '#f59e0b', '#ef4444', '#8b5cf6'], borderWidth: 0 }] }, options: { responsive: true, maintainAspectRatio: false, cutout: '75%', plugins: { legend: { position: 'right', labels:{boxWidth:10} } } } });
-
-            const containerResp = document.getElementById('respChartContainer');
-            containerResp.style.height = (sortedResp.length * 40 + 50) + 'px';
+            const containerResp = document.getElementById('respChartContainer'); containerResp.style.height = (sortedResp.length * 40 + 50) + 'px';
             const ctxResp = document.getElementById('chartResp').getContext('2d');
             chartRespInstance = new Chart(ctxResp, { type: 'bar', indexAxis: 'y', data: { labels: sortedResp.map(i => i[0]), datasets: [{ label: 'Tarefas Ativas', data: sortedResp.map(i => i[1]), backgroundColor: '#00d2d3', borderRadius: 4, barPercentage: 0.3 }] }, options: { responsive: true, maintainAspectRatio: false, scales: { x: { beginAtZero: true, padding: {left:35} } } } });
         }

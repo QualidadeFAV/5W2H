@@ -825,7 +825,7 @@
 
         function filtrarCards(v) { termoBusca = v.toLowerCase(); aplicarFiltros(true); }
         
-        function limparFiltros() { 
+        function limparFiltros(animar = true) { 
             document.getElementById('filtro-status').value='todos'; document.getElementById('filtro-prioridade').value='todos'; 
             document.getElementById('filtro-unidade').value='todos'; document.getElementById('filtro-origem').value='todos';
             document.getElementById('lbl-status').innerText = 'Status: Todos'; document.getElementById('lbl-prioridade').innerText = 'Prioridade: Todas'; 
@@ -834,10 +834,9 @@
             document.querySelectorAll('.dropdown-options').forEach(optContainer => { if(optContainer.children[0]) optContainer.children[0].classList.add('selected'); });
             termoBusca = "";
             const searchInput = document.querySelector('.search-input'); if(searchInput) searchInput.value = "";
-            aplicarFiltros(true); 
+            aplicarFiltros(animar); 
         }
         
-        // CORREÇÃO: Função aceita parâmetro de animação
         function aplicarFiltros(animar = true) {
             const fs = document.getElementById('filtro-status').value; const fp = document.getElementById('filtro-prioridade').value; 
             const fu = document.getElementById('filtro-unidade').value; const fo = document.getElementById('filtro-origem').value;
@@ -858,9 +857,12 @@
                 if (isLateA && !isLateB) return -1; if (!isLateA && isLateB) return 1;  
                 return b.id - a.id;
             });
+            const gridEl = document.getElementById('grid'); 
             
-            // Renderiza com a opção de animação
-            renderGrid(f, animar);
+            if(window.filterTimeout) clearTimeout(window.filterTimeout);
+            window.filterTimeout = setTimeout(() => { 
+                renderGrid(f, animar); 
+            }, 150);
         }
 
         // --- RENDERIZAÇÃO ---
@@ -870,6 +872,7 @@
             if(buscandoAgora.has(nome)) return null;
             buscandoAgora.add(nome);
             try {
+                // TOKEN ADICIONADO AQUI
                 const res = await fetch(`${API_URL}?action=getPhoto&name=${encodeURIComponent(nome)}&token=${API_TOKEN}`);
                 const data = await res.json();
                 if (data.url) { 
@@ -1059,7 +1062,7 @@
         // Restante das funções inalteradas...
         function abrirModal(id=null, e=null) {
             if(e) e.stopPropagation();
-            if(id === null) limparFiltros(); 
+            if(id === null) limparFiltros(false); // CORREÇÃO: Sem Animação ao Abrir Novo
             const isEdit=id!==null; editingStepIndex=-1; document.getElementById('newStepDesc').value=''; document.getElementById('newStepObs').value='';
             newFiles=[]; filesToDelete=[]; keptExistingAttachments=[]; document.getElementById('existingAttachmentsArea').innerHTML=''; renderFilePreview();
             const ti = document.getElementById('inpTitle'); const container = document.getElementById('modalAvatarList'); container.innerHTML = ""; document.getElementById('inpResp').value = "";
@@ -1102,7 +1105,7 @@
                 if (existingIdx > -1) { tasks[existingIdx] = taskFrontend; } else { tasks.unshift(taskFrontend); }
                 
                 // ATUALIZAÇÃO SEM ANIMAÇÃO
-                if(!id) limparFiltros(); else aplicarFiltros(false); 
+                if(!id) limparFiltros(false); else aplicarFiltros(false); 
                 
                 if(isStatsOpen) atualizarGraficos(); 
                 fecharModal(); showToast("Salvo! Sincronizando...", "success");

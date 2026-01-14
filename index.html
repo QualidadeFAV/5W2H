@@ -44,20 +44,22 @@
         }
         
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-body);
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='rgba(15, 76, 129, 0.05)' fill-opacity='1' d='M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,160C960,139,1056,149,1152,165.3C1248,181,1344,203,1392,213.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3Cpath fill='rgba(0, 210, 211, 0.4)' fill-opacity='1' d='M0,256L48,245.3C96,235,192,213,288,192C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,229.3C1248,213,1344,203,1392,197.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: bottom center;
-            background-size: 100% auto;
-            background-attachment: fixed;
-            margin: 0;
-            padding-bottom: 80px;
-            color: var(--text-main);
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            min-height: 100vh;
-        }
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-body);
+    /* SUBTITUIR APENAS A LINHA ABAIXO */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='rgba(15, 76, 129, 0.05)' fill-opacity='1' d='M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,160C960,139,1056,149,1152,165.3C1248,181,1344,203,1392,213.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3Cpath fill='rgba(0, 210, 211, 0.4)' fill-opacity='1' d='M0,256L48,245.3C96,235,192,213,288,192C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,229.3C1248,213,1344,203,1392,197.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+    
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: 100% auto;
+    background-attachment: fixed;
+    margin: 0;
+    padding-bottom: 80px;
+    color: var(--text-main);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+}
         
         body.modal-open {
             overflow: hidden;
@@ -1062,6 +1064,20 @@
             align-items: flex-start;
             background: #fff;
             gap: 20px;
+            position: relative; 
+        }
+        
+        /* ESTILO DO CAMPO MODIFICADO (SÓLIDO E ELEGANTE) */
+        .modified-field {
+            border: 1px solid #f97316 !important; /* Laranja Sólido */
+            background-color: #fff7ed !important; /* Fundo suave */
+            box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.15) !important; /* Glow estático */
+            transition: all 0.3s ease;
+        }
+        
+        /* CONTAINER RELATIVO */
+        .field-group, .modern-date-wrapper {
+            position: relative;
         }
         
         .title-textarea {
@@ -1313,6 +1329,18 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+        }
+        
+        /* HEADER RESPONSÁVEIS CENTRALIZADO CORRETAMENTE */
+        .section-header-resp {
+            position: relative;
+            display: flex;
+            justify-content: center; /* Garante que o texto fique no meio */
+            align-items: center;
+            width: 100%;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #f1f5f9;
+            margin-bottom: 5px;
         }
         
         .resp-area-clean {
@@ -2038,6 +2066,31 @@
         #modalAvatarList:empty {
             display: none !important;
         }
+
+        /* --- NOVO ESTILO: ÍCONE DE LUPA DISCRETO E PRETTY --- */
+        .header-action-icon {
+            position: absolute;
+            right: 0;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            color: var(--primary);
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .header-action-icon:hover {
+            background: var(--brand-cyan);
+            color: white;
+            transform: scale(1.15) rotate(10deg);
+            box-shadow: 0 5px 15px rgba(0, 210, 211, 0.4);
+        }
         
         @media (max-width: 900px) {
             .dashboard-grid {
@@ -2168,7 +2221,6 @@
             <div class="search-wrapper"><input type="text" class="search-input" placeholder="Pesquisar..." onkeyup="filtrarCards(this.value)">
                 <div class="search-icon-bg"><span class="material-icons-round">search</span></div>
             </div>
-            <button class="btn-toggle-stats" onclick="abrirModalNomes()" id="btnNomes"><span class="material-icons-round">people</span>Nomes</button>
             <button class="btn-toggle-stats" onclick="toggleStats(event)" id="btnStats"><span class="material-icons-round">bar_chart</span><span style="font-size:0.9rem">Estatísticas</span></button>
             <button class="btn-main-add" onclick="abrirModal(null, event)"><span class="material-icons-round">add_circle</span></button>
         </div>
@@ -2245,7 +2297,7 @@
         <button id="btn-limpar" class="btn-clear-filters" onclick="limparFiltros()">Limpar Filtros &times;</button>
     </div>
 
-    <div class="grid" id="grid"></div>
+<div class="grid" id="grid"></div>
 
     <div class="modal-overlay" id="modalOverlay">
         <div class="modal-wide">
@@ -2271,6 +2323,8 @@
                                 <span class="material-icons-round" style="font-size:20px; color:var(--text-light)">expand_more</span>
                             </div>
                             <div class="modal-dropdown-options">
+                                <div class="dropdown-item" data-value="N/A" onclick="selectModalOption('unit', 'N/A', 'N/A', event)">N/A</div>
+                                <div class="dropdown-item" data-value="Todas" onclick="selectModalOption('unit', 'Todas', 'Todas', event)">Todas</div>
                                 <div class="dropdown-item" data-value="CER IV" onclick="selectModalOption('unit', 'CER IV', 'CER IV', event)">CER IV</div>
                                 <div class="dropdown-item" data-value="Iputinga" onclick="selectModalOption('unit', 'Iputinga', 'Iputinga', event)">Iputinga</div>
                                 <div class="dropdown-item" data-value="Boa Vista" onclick="selectModalOption('unit', 'Boa Vista', 'Boa Vista', event)">Boa Vista</div>
@@ -2308,8 +2362,17 @@
 
                 <div class="plan-column">
                     <div class="clean-section resp-area-clean">
-                        <div class="section-header" style="width:100%; justify-content:center;"><span style="display:flex;align-items:center;gap:6px;"><span class="material-icons-round" style="font-size:18px">group</span> Quem? (Responsáveis)</span>
+                        
+                        <div class="section-header-resp">
+                            <span style="font-family:'Montserrat',sans-serif; font-size:0.85rem; font-weight:800; color:var(--primary); text-transform:uppercase; display:flex; align-items:center; gap:6px;">
+                                <span class="material-icons-round" style="font-size:18px">group</span> Quem? (Responsáveis)
+                            </span>
+                            
+                            <button type="button" class="header-action-icon" onclick="abrirModalNomes(event)" title="Consultar Banco de Nomes">
+                                <span class="material-icons-round" style="font-size:20px">person_search</span>
+                            </button>
                         </div>
+                        
                         <div id="modalAvatarList"></div>
                         <textarea id="inpResp" class="input-add-resp" rows="1" placeholder="Digite os nomes (separe por vírgula)..." oninput="autoResize(this); gerenciarInputResponsavel(this)"></textarea>
                     </div>
@@ -2444,7 +2507,23 @@
             <div class="confirm-actions"><button class="btn-ok" onclick="fecharAlertModal()">Entendi</button></div>
         </div>
     </div>
-    <script>
+    
+    <div class="modal-overlay" id="draftConfirmModal" style="z-index:125">
+        <div class="confirm-box">
+            <div class="alert-icon" style="color:var(--primary); background:var(--primary-soft);"><span class="material-icons-round" style="font-size:30px">save_as</span></div>
+            <div class="confirm-title">Alterações não Salvas</div>
+            <div class="confirm-desc">
+                Há alterações não salvas. Deseja continuar editando ou descartar as alterações atuais?
+                <div id="txtDraftName" style="margin-top:10px; padding:5px; background:#f1f5f9; border-radius:6px; font-weight:700; font-size:0.85rem; color:var(--primary); word-break: break-word;"></div>
+            </div>
+            <div class="confirm-actions">
+                <button class="btn-cancel" onclick="descartarRascunho()">Descartar Alterações</button>
+                <button class="btn-ok" onclick="usarRascunho()">Continuar Editando</button>
+            </div>
+        </div>
+    </div>
+
+<script>
         const API_URL = "https://script.google.com/macros/s/AKfycbyA8a8PaPz7T4lkx6NlQfeX1iWiNi9OywZKQO-Y_hUaNzrZF5_66ptDHCA-l9_IFeKc/exec";
         const API_TOKEN = "fav-2026-seguro-123";
 
@@ -2457,6 +2536,11 @@
         let termoBusca = "";
         let isStatsOpen = false;
         let attachmentToDeleteIndex = -1;
+        
+        // --- SISTEMA DE RASCUNHO ---
+        let draftData = null;
+        let estadoInicialFormulario = ""; 
+        let pendingIntentId = null;
 
         // Cache e Controle
         let photoCache = {};
@@ -2474,6 +2558,7 @@
         const deleteModal = document.getElementById('deleteModal');
         const attachmentDeleteModal = document.getElementById('attachmentDeleteModal');
         const alertModal = document.getElementById('alertModal');
+        const draftConfirmModal = document.getElementById('draftConfirmModal');
         const timelineList = document.getElementById('timelineList');
         const btnAddStep = document.getElementById('btnAddStepBtn');
         const statsPanel = document.getElementById('statsPanel');
@@ -2481,28 +2566,29 @@
         const loadingOverlay = document.getElementById('loading-overlay');
         const fileInput = document.getElementById('inpFiles');
 
-        // --- FUNÇÃO RESETAR PÁGINA (CORRIGIDA) ---
+        // --- FUNÇÃO RESETAR PÁGINA (ESTÁVEL) ---
         function resetarPagina() {
-            // 1. Rola para o topo suavemente
+            if (document.activeElement) document.activeElement.blur();
+
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
 
-            // 2. Limpa busca visualmente
             const searchInput = document.querySelector('.search-input');
             if (searchInput) searchInput.value = "";
             termoBusca = "";
 
-            // 3. Fecha estatísticas se aberto
             if (isStatsOpen) {
                 statsPanel.classList.remove('open');
                 document.getElementById('btnStats').classList.remove('active');
                 isStatsOpen = false;
             }
 
-            // 4. Reseta filtros SEM ANIMAÇÃO (false) para não piscar
-            limparFiltros(false);
+            // Aguarda o scroll terminar (700ms) para evitar conflito visual
+            setTimeout(() => {
+                limparFiltros(false); 
+            }, 700);
         }
 
         // --- FUNÇÕES DE INTERFACE ---
@@ -2578,7 +2664,7 @@
             options.forEach(op => op.classList.remove('selected'));
             item.classList.add('selected');
             closeAllDropdowns();
-            aplicarFiltros();
+            aplicarFiltros(true); 
         }
 
         function formatarMoeda(elm) {
@@ -2605,10 +2691,6 @@
             const d = new Date(isoStr);
             if (isNaN(d.getTime())) return "";
             return d.toISOString().split('T')[0];
-        }
-
-        function dataParaPlanilha(inpStr) {
-            return inpStr || "";
         }
 
         function formatarNomeProprio(texto) {
@@ -2648,12 +2730,12 @@
                             type: f.type,
                             data: evt.target.result
                         });
-                        renderFilePreview();
+                        renderFilePreview(); 
                     };
                     r.readAsDataURL(f);
                 });
             }
-            this.value = '';
+            this.value = ''; 
         });
 
         function renderFilePreview() {
@@ -2728,11 +2810,7 @@
                     const k = (n) => Object.keys(t).find(x => x.toLowerCase() === n.toLowerCase());
                     let stepsRaw = t.steps;
                     if (typeof stepsRaw === 'string') {
-                        try {
-                            stepsRaw = JSON.parse(stepsRaw);
-                        } catch {
-                            stepsRaw = [];
-                        }
+                        try { stepsRaw = JSON.parse(stepsRaw); } catch { stepsRaw = []; }
                     }
 
                     return {
@@ -2762,15 +2840,13 @@
                 if (Object.keys(dbNomes).length === 0) {
                     fetch(`${API_URL}?action=getNamesHistory&token=${API_TOKEN}`)
                         .then(res => res.json())
-                        .then(data => {
-                            dbNomes = data;
-                        })
+                        .then(data => { dbNomes = data; })
                         .catch(err => console.log("Erro nomes:", err));
                 }
 
             } catch (e) {
                 console.error("Erro ao carregar:", e);
-                showToast("Erro ao conectar no banco: " + e.message, "error");
+                if(!silencioso) showToast("Erro ao conectar no banco", "error");
             } finally {
                 if (!silencioso) loadingOverlay.classList.add('hidden');
             }
@@ -2802,7 +2878,10 @@
 
         function filtrarCards(v) {
             termoBusca = v.toLowerCase();
-            aplicarFiltros(true);
+            if (filterTimeout) clearTimeout(filterTimeout);
+            filterTimeout = setTimeout(() => {
+                aplicarFiltros(true);
+            }, 300);
         }
 
         function limparFiltros(animar = true) {
@@ -2855,7 +2934,6 @@
             });
 
             const hj = new Date().toISOString().split('T')[0];
-
             f.sort((a, b) => {
                 const stA = normalizarTexto(a.status);
                 const stB = normalizarTexto(b.status);
@@ -2878,11 +2956,7 @@
                     if (dDueA > dDueB) return 1;
                 }
 
-                const mapPrio = {
-                    'alta': 3,
-                    'media': 2,
-                    'baixa': 1
-                };
+                const mapPrio = { 'alta': 3, 'media': 2, 'baixa': 1 };
                 const pA = mapPrio[a.priority || 'baixa'] || 1;
                 const pB = mapPrio[b.priority || 'baixa'] || 1;
 
@@ -2892,10 +2966,7 @@
                 return b.id - a.id;
             });
 
-            if (filterTimeout) clearTimeout(filterTimeout);
-            filterTimeout = setTimeout(() => {
-                renderGrid(f, animar);
-            }, 150);
+            renderGrid(f, animar);
         }
 
         // --- RENDERIZAÇÃO INTELIGENTE (POP-IN) ---
@@ -2913,7 +2984,6 @@
                 if (data.url) {
                     photoCache[nome] = data.url;
 
-                    // ATUALIZAÇÃO DOM "AO VIVO": Encontra onde esse nome está na tela e troca a bolinha pela foto
                     const avataresNaGrid = document.querySelectorAll(`.avatar-stack-item[data-name="${nome}"]`);
                     avataresNaGrid.forEach(el => {
                         el.innerHTML = `<img src="${data.url}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">`;
@@ -2950,8 +3020,6 @@
             if (!nomeStr) return '';
             const nomeTrim = formatarNomeProprio(nomeStr.trim());
             if (!nomeTrim) return '';
-
-            // REGRA: Sem espaço, sem avatar
             if (!nomeTrim.includes(' ')) return '';
 
             const url = photoCache[nomeTrim];
@@ -2959,12 +3027,10 @@
             const fallbackClass = `av-color-${colorIndex}`;
             const zIdx = 10 - index;
 
-            // SE TEM CACHE: Retorna IMG direto (rápido)
             if (url) {
                 return `<div class="avatar-stack-item" style="z-index:${zIdx}" title="${nomeTrim}" data-name="${nomeTrim}"><img src="${url}" alt="${nomeTrim[0]}" onerror="this.style.display='none';this.parentNode.classList.add('${fallbackClass}');this.parentNode.innerText='${nomeTrim[0]}' "></div>`;
             }
 
-            // SE NÃO TEM CACHE: Retorna Bolinha E dispara busca (Fire & Forget)
             if (photoCache[nomeTrim] === undefined) {
                 buscarFoto(nomeTrim);
             }
@@ -2986,39 +3052,20 @@
                 const isConc = (st === 'concluido');
                 const isOnt = (dDue && !isLate && !isConc);
 
-                // Gera HTML dos avatares (que pode disparar busca em bg)
                 const respH = t.resp ? t.resp.split(',').map((r, idx) => getAvatarHTML(r, idx)).join('') : '<span style="font-size:0.7rem;color:#94a3b8; padding-left:10px;">--</span>';
 
-                const stInfo = st === 'pendente' ? {
-                    l: 'A Fazer',
-                    c: 'st-pendente',
-                    b: '#475569'
-                } : st === 'andamento' ? {
-                    l: 'Andamento',
-                    c: 'st-andamento',
-                    b: '#f59e0b'
-                } : {
-                    l: 'Concluído',
-                    c: 'st-concluido',
-                    b: '#059669'
-                };
+                const stInfo = st === 'pendente' ? { l: 'A Fazer', c: 'st-pendente', b: '#475569' } : st === 'andamento' ? { l: 'Andamento', c: 'st-andamento', b: '#f59e0b' } : { l: 'Concluído', c: 'st-concluido', b: '#059669' };
                 const corBarra = st === 'pendente' ? 'rgba(0,0,0,0.05)' : st === 'andamento' ? '#f59e0b' : '#059669';
                 const prio = t.priority || 'baixa';
-                const pL = {
-                    'alta': 'Alta',
-                    'media': 'Média',
-                    'baixa': 'Baixa'
-                }[prio] || 'Baixa';
-                const pC = {
-                    'alta': 'p-alta',
-                    'media': 'p-media',
-                    'baixa': 'p-baixa'
-                }[prio] || 'p-baixa';
+                const pL = { 'alta': 'Alta', 'media': 'Média', 'baixa': 'Baixa' }[prio] || 'Baixa';
+                const pC = { 'alta': 'p-alta', 'media': 'p-media', 'baixa': 'p-baixa' }[prio] || 'p-baixa';
                 const pI = prio === 'alta' ? 'priority_high' : prio === 'media' ? 'remove' : 'keyboard_arrow_down';
+                
                 let dtH = '';
                 if (isLate) dtH = `<span class="date-pill late">Atrasado</span>`;
                 else if (isOnt) dtH = `<span class="date-pill ontime">Em dia</span>`;
                 else if (!dDue && !isConc) dtH = `<span class="date-pill nodate">S/ Prazo</span>`;
+                
                 let thH = '';
                 if (t.attachments) {
                     let lks = t.attachments.toString().includes("|||") ? t.attachments.split('|||').filter(x => x) : t.attachments.split(',').filter(x => x);
@@ -3059,11 +3106,15 @@
             el.style.height = el.scrollHeight + 'px';
         }
 
-        // --- MODAL DE NOMES ---
-        function abrirModalNomes() {
+        // --- MODAL DE NOMES (ATUALIZADO: INSERÇÃO DIRETA) ---
+        function abrirModalNomes(e = null) {
+            if(e) e.stopPropagation();
+
             const container = document.getElementById('namesListContainer');
             container.innerHTML = '';
             let lista = [];
+            
+            // Pega os nomes do banco
             for (let k in dbNomes) {
                 dbNomes[k].forEach(last => lista.push(k + " " + last));
             }
@@ -3075,22 +3126,39 @@
                 lista.forEach(n => {
                     const item = document.createElement('div');
                     item.className = 'name-list-item';
-                    item.innerHTML = `<span>${n}</span> <span class="material-icons-round" style="font-size:16px; color:#cbd5e1">content_copy</span>`;
+                    item.innerHTML = `<span>${n}</span> <span class="material-icons-round" style="font-size:18px; color:var(--brand-cyan)">add_circle_outline</span>`;
+                    
                     item.onclick = () => {
-                        navigator.clipboard.writeText(n).then(() => showToast("Nome copiado!", "success"));
+                        const input = document.getElementById('inpResp');
+                        let valorAtual = input.value;
+
+                        // Remove espaços em branco do final
+                        if (valorAtual) valorAtual = valorAtual.trimEnd();
+
+                        if (valorAtual.length > 0) {
+                            if (valorAtual.endsWith(',')) {
+                                input.value = valorAtual + " " + n;
+                            } else {
+                                input.value = valorAtual + ", " + n;
+                            }
+                        } else {
+                            input.value = n;
+                        }
+
+                        autoResize(input);
+                        gerenciarInputResponsavel(input);
+                        showToast(n + " adicionado!", "success");
                     };
                     container.appendChild(item);
                 });
             }
 
             document.getElementById('modalNomes').style.display = 'flex';
-            document.body.classList.add('modal-open');
             setTimeout(() => document.getElementById('modalNomes').classList.add('active'), 10);
         }
 
         function fecharModalNomes() {
             document.getElementById('modalNomes').classList.remove('active');
-            document.body.classList.remove('modal-open');
             setTimeout(() => document.getElementById('modalNomes').style.display = 'none', 300);
         }
 
@@ -3138,14 +3206,12 @@
                     wrapper.className = 'avatar-wrapper animate-in';
                     wrapper.setAttribute('data-name', n);
 
-                    // Renderiza bolinha inicial
                     const div = document.createElement('div');
                     div.className = `modal-avatar-big av-color-${n.length % 6}`;
                     div.innerText = n[0].toUpperCase();
                     wrapper.appendChild(div);
                     container.appendChild(wrapper);
 
-                    // Busca foto em background e troca se achar
                     buscarFoto(n).then(url => {
                         if (url) {
                             div.remove();
@@ -3159,18 +3225,151 @@
             }
         }
 
-        // --- GESTÃO DE MODAIS ---
-        function fecharModal() {
+        // --- FUNÇÃO AUXILIAR: CAPTURAR ESTADO DO FORMULÁRIO (DIRTY CHECK) ---
+        function capturarEstadoAtual() {
+            return JSON.stringify({
+                title: document.getElementById('inpTitle').value,
+                origin: document.getElementById('inpOrigin').value,
+                unit: document.getElementById('inpUnit').value,
+                priority: document.getElementById('inpPriority').value,
+                desc: document.getElementById('inpProblem').value,
+                why: document.getElementById('inpWhy').value,
+                how: document.getElementById('inpHow').value,
+                cost: document.getElementById('inpCost').value,
+                obs: document.getElementById('inpObs').value,
+                resp: document.getElementById('inpResp').value,
+                start: document.getElementById('inpDateStart').value,
+                due: document.getElementById('inpDateDue').value,
+                status: document.getElementById('selectedStatus').value,
+                steps: tempSteps,
+                // Captura inputs do histórico também
+                newStepT: document.getElementById('newStepTitle').value,
+                newStepD: document.getElementById('newStepDesc').value,
+                newStepDt: document.getElementById('newStepDate').value,
+                newFilesLen: newFiles.length,
+                deletedFilesLen: filesToDelete.length
+            });
+        }
+
+        // --- DESTAQUE VISUAL NOS CAMPOS ---
+        function destacarCamposModificados(estadoDraft, estadoOriginal) {
+            document.querySelectorAll('.modified-field').forEach(el => el.classList.remove('modified-field'));
+
+            const draft = JSON.parse(estadoDraft);
+            const orig = JSON.parse(estadoOriginal);
+
+            const mapCampos = {
+                'title': 'inpTitle',
+                'origin': 'inpOrigin',
+                'desc': 'inpProblem',
+                'why': 'inpWhy',
+                'how': 'inpHow',
+                'cost': 'inpCost',
+                'obs': 'inpObs',
+                'resp': 'inpResp'
+            };
+
+            for(const key in mapCampos) {
+                if(draft[key] !== orig[key]) {
+                    const el = document.getElementById(mapCampos[key]);
+                    if(el) el.classList.add('modified-field');
+                }
+            }
+        }
+
+        // --- GESTÃO DE MODAIS E RASCUNHOS ---
+        function fecharModal(isSaving = false) {
             const m = document.getElementById('modalOverlay');
+            
+            if (!isSaving) {
+                const id = document.getElementById('taskId').value;
+                const title = document.getElementById('inpTitle').value;
+                const desc = document.getElementById('inpProblem').value;
+                
+                const estadoAtual = capturarEstadoAtual();
+                const houveMudanca = estadoAtual !== estadoInicialFormulario;
+
+                if(houveMudanca && (title || desc)) {
+                    draftData = {
+                        id: id, 
+                        title: title,
+                        origin: document.getElementById('inpOrigin').value,
+                        unit: document.getElementById('inpUnit').value,
+                        priority: document.getElementById('inpPriority').value,
+                        problem: desc,
+                        why: document.getElementById('inpWhy').value,
+                        how: document.getElementById('inpHow').value,
+                        cost: document.getElementById('inpCost').value,
+                        obs: document.getElementById('inpObs').value,
+                        resp: document.getElementById('inpResp').value,
+                        dateStart: document.getElementById('inpDateStart').value,
+                        dateDue: document.getElementById('inpDateDue').value,
+                        status: document.getElementById('selectedStatus').value,
+                        steps: tempSteps,
+                        newStepT: document.getElementById('newStepTitle').value,
+                        newStepD: document.getElementById('newStepDesc').value,
+                        newStepDt: document.getElementById('newStepDate').value,
+                        newFiles: newFiles,
+                        originalState: estadoInicialFormulario 
+                    };
+                    showToast("Rascunho salvo temporariamente", "info");
+                } else {
+                    if(draftData && draftData.id === id) draftData = null;
+                }
+            } else {
+                draftData = null;
+            }
+
             m.classList.remove('active');
             document.body.classList.remove('modal-open');
             setTimeout(() => {
                 m.style.display = 'none';
+                document.querySelectorAll('.modified-field').forEach(el => el.classList.remove('modified-field'));
             }, 300);
         }
 
         function abrirModal(id = null, e = null) {
             if (e) e.stopPropagation();
+
+            pendingIntentId = id;
+
+            if(draftData !== null) {
+                if(id !== null && String(draftData.id) === String(id)) {
+                    prepararModal(id, true);
+                    return;
+                }
+
+                const draftTitle = draftData.title || "(Sem Título)";
+                const draftType = draftData.id ? "Editando: " : "Novo: ";
+                document.getElementById('txtDraftName').innerText = draftType + draftTitle;
+
+                draftConfirmModal.style.display = 'flex';
+                setTimeout(() => draftConfirmModal.classList.add('active'), 10);
+                return;
+            }
+
+            prepararModal(id);
+        }
+
+        function descartarRascunho() {
+            draftData = null;
+            draftConfirmModal.classList.remove('active');
+            setTimeout(() => {
+                draftConfirmModal.style.display = 'none';
+                prepararModal(pendingIntentId);
+            }, 300);
+        }
+
+        function usarRascunho() {
+            draftConfirmModal.classList.remove('active');
+            setTimeout(() => {
+                draftConfirmModal.style.display = 'none';
+                const idDraft = draftData.id || null;
+                prepararModal(idDraft, true);
+            }, 300);
+        }
+
+        function prepararModal(id, useDraft = false) {
             const m = document.getElementById('modalOverlay');
             m.style.display = 'flex';
 
@@ -3182,23 +3381,75 @@
                 });
             });
 
-            const isEdit = id !== null;
+            const isEdit = id !== null && id !== "";
             editingStepIndex = -1;
+            
             document.getElementById('newStepDesc').value = '';
             document.getElementById('newStepDate').value = '';
             document.getElementById('newStepTitle').value = '';
 
-            newFiles = [];
             filesToDelete = [];
             keptExistingAttachments = [];
             document.getElementById('existingAttachmentsArea').innerHTML = '';
-            renderFilePreview();
+            
             const ti = document.getElementById('inpTitle');
             const container = document.getElementById('modalAvatarList');
             container.innerHTML = "";
-            document.getElementById('inpResp').value = "";
 
-            if (isEdit) {
+            if (useDraft && draftData) {
+                const source = draftData;
+                document.getElementById('taskId').value = source.id || ''; 
+                ti.value = source.title || '';
+                setTimeout(() => autoResize(ti), 10);
+
+                document.getElementById('inpUnit').value = source.unit || '';
+                document.getElementById('display-unit').innerText = source.unit || 'Selecionar...';
+
+                document.getElementById('inpPriority').value = source.priority || 'baixa';
+                document.getElementById('display-prio').innerText = (source.priority === 'alta' ? 'Alta' : source.priority === 'media' ? 'Média' : 'Baixa');
+
+                document.getElementById('inpOrigin').value = source.origin || '';
+                document.getElementById('inpProblem').value = source.problem || '';
+                document.getElementById('inpWhy').value = source.why || '';
+                document.getElementById('inpHow').value = source.how || '';
+                document.getElementById('inpCost').value = source.cost || '';
+                document.getElementById('inpObs').value = source.obs || '';
+                
+                document.getElementById('inpDateStart').value = source.dateStart || '';
+                document.getElementById('inpDateDue').value = source.dateDue || '';
+                
+                updateStatusUI(source.status || 'pendente');
+                
+                document.getElementById('inpResp').value = source.resp || '';
+                setTimeout(() => autoResize(document.getElementById('inpResp')), 10);
+                if(source.resp) atualizarAvatarsModal(source.resp);
+
+                tempSteps = source.steps ? [...source.steps] : [];
+                newFiles = source.newFiles ? [...source.newFiles] : [];
+                
+                document.getElementById('newStepTitle').value = source.newStepT || '';
+                document.getElementById('newStepDesc').value = source.newStepD || '';
+                document.getElementById('newStepDate').value = source.newStepDt || '';
+
+                if(source.id) {
+                    const original = tasks.find(x => String(x.id) === String(source.id));
+                    if(original && original.attachments) {
+                         keptExistingAttachments = original.attachments.toString().includes("|||") ? original.attachments.split('|||').filter(x => x) : original.attachments.split(',').filter(x => x);
+                         renderExistingAttachments();
+                    }
+                }
+                renderFilePreview();
+                
+                if(source.originalState) {
+                    setTimeout(() => {
+                        const estadoAtualRascunho = capturarEstadoAtual();
+                        destacarCamposModificados(estadoAtualRascunho, source.originalState);
+                    }, 100);
+                }
+
+            } else if (isEdit) {
+                newFiles = [];
+                renderFilePreview();
                 const t = tasks.find(x => String(x.id) === String(id));
                 if (!t) return;
 
@@ -3213,7 +3464,7 @@
                 document.getElementById('display-prio').innerText = (t.priority === 'alta' ? 'Alta' : t.priority === 'media' ? 'Média' : 'Baixa');
 
                 document.getElementById('inpOrigin').value = t.origin;
-                document.getElementById('inpProblem').value = t.problem;
+                document.getElementById('inpProblem').value = t.problem || "";
 
                 document.getElementById('inpWhy').value = t.why || "";
                 document.getElementById('inpHow').value = t.how || "";
@@ -3233,13 +3484,9 @@
                     renderExistingAttachments();
                 }
             } else {
-                const hj = new Date();
-                const y = hj.getFullYear(),
-                    m = String(hj.getMonth() + 1).padStart(2, '0'),
-                    d = String(hj.getDate()).padStart(2, '0');
                 document.getElementById('taskId').value = '';
                 ti.value = '';
-                setTimeout(() => autoResize(ti), 10);
+                ti.style.height = '50px';
 
                 document.getElementById('inpUnit').value = '';
                 document.getElementById('display-unit').innerText = 'Selecionar...';
@@ -3253,12 +3500,32 @@
                 document.getElementById('inpHow').value = '';
                 document.getElementById('inpCost').value = '';
                 document.getElementById('inpObs').value = '';
+                
+                const hj = new Date();
+                const y = hj.getFullYear(), m = String(hj.getMonth() + 1).padStart(2, '0'), d = String(hj.getDate()).padStart(2, '0');
                 document.getElementById('inpDateStart').value = `${y}-${m}-${d}`;
                 document.getElementById('inpDateDue').value = '';
+                
                 updateStatusUI('pendente');
+                
+                document.getElementById('inpResp').value = '';
+                document.getElementById('inpResp').style.height = '46px';
+                
                 tempSteps = [];
+                newFiles = [];
+                renderFilePreview();
             }
             renderTimeline();
+            
+            // Captura o estado inicial para comparação futura
+            setTimeout(() => {
+                if(useDraft && draftData && draftData.originalState) {
+                    estadoInicialFormulario = draftData.originalState;
+                } else {
+                    estadoInicialFormulario = capturarEstadoAtual();
+                }
+            }, 50);
+            
             document.body.classList.add('modal-open');
         }
 
@@ -3281,14 +3548,9 @@
                 return;
             }
 
-            fecharModal();
-            showToast("Salvo com sucesso!");
-
-            const payload = {
-                action: id ? 'update' : 'create',
-                id: id,
+            const taskObj = {
+                id: id ? id : "temp_" + Date.now(),
                 title: title,
-                token: API_TOKEN,
                 origin: originVal,
                 unit: document.getElementById('inpUnit').value,
                 priority: document.getElementById('inpPriority').value,
@@ -3301,6 +3563,39 @@
                 obs: document.getElementById('inpObs').value,
                 dateStart: document.getElementById('inpDateStart').value,
                 dateDue: document.getElementById('inpDateDue').value,
+                steps: tempSteps,
+                attachments: keptExistingAttachments.join('|||')
+            };
+
+            if (id) {
+                const idx = tasks.findIndex(t => String(t.id) === String(id));
+                if (idx > -1) tasks[idx] = { ...tasks[idx], ...taskObj };
+            } else {
+                tasks.unshift(taskObj);
+            }
+
+            fecharModal(true); 
+            aplicarFiltros(false);
+            
+            showToast("Salvo com sucesso!", "success");
+
+            const payload = {
+                action: id ? 'update' : 'create',
+                id: id,
+                title: title,
+                token: API_TOKEN,
+                origin: originVal,
+                unit: taskObj.unit,
+                priority: taskObj.priority,
+                status: taskObj.status,
+                resp: taskObj.resp,
+                problem: taskObj.problem,
+                why: taskObj.why,
+                how: taskObj.how,
+                cost: taskObj.cost,
+                obs: taskObj.obs,
+                dateStart: taskObj.dateStart,
+                dateDue: taskObj.dateDue,
                 steps: JSON.stringify(tempSteps),
                 keptAttachments: keptExistingAttachments.join('|||'),
                 filesToDelete: filesToDelete.join('|||'),
@@ -3314,13 +3609,13 @@
                 .then(r => r.json())
                 .then(d => {
                     if (d.result === 'success' || d.result === 'updated' || d.result === 'created') {
-                        carregarDados(true);
+                        carregarDados(true); 
                     } else {
-                        showToast("Erro ao salvar: " + (d.message || d.error || "Desconhecido"), "error");
+                        showToast("Erro ao salvar no servidor: " + (d.message || d.error), "error");
                     }
                 })
                 .catch(e => {
-                    showToast("Erro de rede: " + e.message, "error");
+                    console.log("Erro rede ao salvar", e);
                 });
         }
 
@@ -3341,8 +3636,12 @@
             if (!id) return;
 
             fecharDeleteModal();
-            fecharModal();
-            showToast("Excluído com sucesso.");
+            fecharModal(true); 
+            
+            tasks = tasks.filter(t => String(t.id) !== String(id));
+            aplicarFiltros(false);
+            
+            showToast("Excluído com sucesso!", "success");
 
             fetch(API_URL, {
                     method: "POST",
@@ -3354,14 +3653,13 @@
                 })
                 .then(r => r.json())
                 .then(d => {
-                    if (d.result === 'deleted') {
+                    if (d.result !== 'deleted') {
+                        showToast("Erro ao excluir no servidor.", "error");
                         carregarDados(true);
-                    } else {
-                        showToast("Erro ao excluir: " + (d.message || d.error), "error");
                     }
                 })
                 .catch(e => {
-                    showToast("Erro rede: " + e.message, "error");
+                    carregarDados(true);
                 });
         }
 
@@ -3508,6 +3806,9 @@
         };
         modalNomes.onclick = (e) => {
             if (e.target === modalNomes) fecharModalNomes()
+        };
+        draftConfirmModal.onclick = (e) => {
+             if (e.target === draftConfirmModal) descartarRascunho()
         };
 
         function toggleStats(e) {
@@ -3678,6 +3979,4 @@
     </script>
 </body>
 
-</html>
-</body>
 </html>
